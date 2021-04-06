@@ -791,7 +791,7 @@ static void gfs2_dirty_inode(struct inode *inode, int flags)
 	int need_endtrans = 0;
 	int ret;
 
-	if (!(flags & I_DIRTY_INODE))
+	if (!(flags & (I_DIRTY_DATASYNC|I_DIRTY_SYNC)))
 		return;
 	if (unlikely(test_bit(SDF_SHUTDOWN, &sdp->sd_flags)))
 		return;
